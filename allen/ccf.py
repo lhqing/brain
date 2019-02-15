@@ -1,17 +1,32 @@
 import pandas as pd
 import json
 from scipy.ndimage import convolve
+import pathlib
+import allen
+import numpy as np
+
+PACKAGE_DIR = pathlib.Path(allen.__path__[0])
+print(PACKAGE_DIR)
+CEMBA_REGION = pd.read_table(PACKAGE_DIR / 'data/cemba_region_anno.tsv',
+                             index_col=0)
 
 
-def get_reference_space(annotation_grid_path, structure_graph_path, resolution=100):
+def get_reference_space(resolution=100):
     if isinstance(resolution, int):
         resolution = [resolution, resolution, resolution]
+
+    for r in resolution:
+        if r not in [10, 25, 50, 100]:
+            raise ValueError(f'Axis resolution must in 10, 25, 50, 100 micron, got {r}.')
+    resolution_file = min(resolution)
+    annotation_grid_path = PACKAGE_DIR / f'data/ccf2017_annotation_{resolution_file}.nrrd'
+    structure_graph_path = PACKAGE_DIR / f'data/StructureGraph_Set1_Adult_Mouse_Brain.json'
 
     import nrrd
     from allensdk.core.structure_tree import StructureTree
     from allensdk.core.reference_space import ReferenceSpace
 
-    annotation, meta = nrrd.read(annotation_grid_path)
+    annotation, meta = nrrd.read(str(annotation_grid_path))
     with open(structure_graph_path) as f:
         # This removes some unused fields returned by the query
         structure_graph = json.load(f)
@@ -29,20 +44,18 @@ def make_structure_mask_border(structure_id, ref_space):
     return mask
 
 
-def get_region_image(region, ref_space, tree, cemba_region_df):
+def get_region_image(region, ref_space, tree):
     region_coronal = 2100 + int(region[0]) * 600
-    mask = get_cemba_region_mask(region, ref_space, tree, cemba_region_df)
+    mask = get_cemba_region_mask(region, ref_space, tree)
     coronal_img = ref_space.get_slice_image(0, region_coronal)
     img = mask[int(region_coronal / ref_space.resolution[0]), :, :][:, :, None] * coronal_img
     return img
 
 
-def get_cemba_region_mask(region_ids, ref_space, tree, cemba_region_df):
+def get_cemba_region_mask(region_ids, ref_space, tree):
     if isinstance(region_ids, str):
         region_ids = [region_ids]
-    regions = ','.join(cemba_region_df.loc[region_ids]['Region'].tolist())
+    regions = ','.join(CEMBA_REGION.loc[region_ids]['Region'].tolist())
     regions_id_list = [i['id'] for i in tree.get_structures_by_acronym(regions.split(','))]
     mask = ref_space.make_structure_mask(regions_id_list)
     return mask
-
-
