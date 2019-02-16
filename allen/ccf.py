@@ -53,8 +53,8 @@ def get_region_image(region, ref_space, tree, mask_only=False):
     return img
 
 
-def get_slice_image(region, ref_space):
-    region_coronal = 2100 + int(region[:-1]) * 600
+def get_slice_image(brain_slice, ref_space):
+    region_coronal = 2100 + brain_slice * 600
     coronal_img = ref_space.get_slice_image(0, region_coronal)
     return coronal_img
 
