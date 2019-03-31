@@ -8,8 +8,8 @@ import seaborn as sns
 import numpy as np
 
 PACKAGE_DIR = pathlib.Path(allen.__path__[0])
-CEMBA_REGION = pd.read_table(PACKAGE_DIR / 'data/cemba_region_anno.tsv',
-                             index_col=0)
+CEMBA_REGION = pd.read_csv(PACKAGE_DIR / 'data/cemba_region_anno.tsv',
+                           index_col=0, sep='\t')
 
 
 def get_reference_space(resolution=100):
