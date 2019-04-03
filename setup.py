@@ -14,7 +14,7 @@ setup(
     package_data={
         '': ['*.nrrd', '*.tsv', '*.csv', '*.json'],
     },
-    install_requires=['pandas', 'numpy', 'scipy', 'allensdk'],
+    install_requires=['pandas', 'numpy', 'scipy', 'allensdk', 'matplotlib'],
 )
 
 if __name__ == '__main__':
