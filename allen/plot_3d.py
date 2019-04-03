@@ -2,7 +2,7 @@ from matplotlib import animation
 import numpy as np
 
 
-def clear_axes3d_background(ax):
+def _clear_axes3d_background(ax):
     # Get rid of the panes
     ax.w_xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
     ax.w_yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
@@ -36,7 +36,7 @@ def plot_cat_3d_scatter(ax_3d, mask, rsp, colormap, scatter_kws=None,
         _scatter_kws.update(scatter_kws)
     ax_3d.scatter(xs, ys, zs, c=colors, **_scatter_kws)
     if remove_coords:
-        ax_3d = clear_axes3d_background(ax_3d)
+        ax_3d = _clear_axes3d_background(ax_3d)
     return ax_3d
 
 
