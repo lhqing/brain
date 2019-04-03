@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 allen_version = '0.1.1'
 
 setup(
-    name='allen',
+    name='brain',
     version=allen_version,
     author='Hanqing Liu',
     author_email='hanliu@salk.edu',
@@ -18,6 +18,6 @@ setup(
 )
 
 if __name__ == '__main__':
-    f = open("allen/__init__.py", 'a')
+    f = open("brain/__init__.py", 'a')
     f.write(f"__version__ = '{allen_version}'\n")
     f.close()

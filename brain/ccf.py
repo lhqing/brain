@@ -3,11 +3,11 @@ import pandas as pd
 import json
 from scipy.ndimage import convolve
 import pathlib
-import allen
+import brain
 import seaborn as sns
 import numpy as np
 
-PACKAGE_DIR = pathlib.Path(allen.__path__[0])
+PACKAGE_DIR = pathlib.Path(brain.__path__[0])
 CEMBA_REGION = pd.read_csv(PACKAGE_DIR / 'data/cemba_region_anno.tsv',
                            index_col=0, sep='\t')
 

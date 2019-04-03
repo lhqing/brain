@@ -1,8 +1,8 @@
 import pandas as pd
 import pathlib
-import allen
+import brain
 
-PACKAGE_DIR = pathlib.Path(allen.__path__[0])
+PACKAGE_DIR = pathlib.Path(brain.__path__[0])
 CEMBA_REGION = pd.read_csv(PACKAGE_DIR / 'data/rs1_paper_region.tsv',
                            index_col=0, sep='\t')
 CEMBA_REGION['ID'] = pd.Series(CEMBA_REGION.index.tolist(), index=CEMBA_REGION.index)
