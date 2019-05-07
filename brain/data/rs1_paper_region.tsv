@@ -32,4 +32,5 @@ ID	MajorRegion	SubRegion	DetailRegion	Anterior	Posterior	MajorColor1	SubColor1	M
 4E	STR	ACB	ACB,aco	3900	4500	#9467bd	#9467bd	#8456db	#8456db
 5F	STR	ACB	ACB	4500	5100	#9467bd	#9467bd	#8456db	#8456db
 4D	STR	CP	CP	3900	4500	#9467bd	#e377c2	#8456db	#db56c0
+5J	STR	CP	CP	4500	5100	#9467bd	#e377c2	#8456db	#db56c0
 4G	STR	LSX	LSX	3900	4500	#9467bd	#f7b6d2	#8456db	#db5687
