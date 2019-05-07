@@ -37,3 +37,4 @@ ID	MajorRegion	SubRegion	DetailRegion	Anterior	Posterior	MajorColor1	SubColor1	M
 6A	Isocortex	ACA,PL,ILA	ACA	5100	5700	#1f77b4	#8c564b	#74db56	#dbd056
 6C	Isocortex	SSs	SSs	5100	5700	#1f77b4	#2ca02c	#74db56	#56d3db
 6D	OLF	PIR	PIR	5100	5700	#ff7f0e	#ff7f0e	#569adb	#5661db
+8B  Isocortex   SSp SSp 6300    6900    #1f77b4	#2ca02c	#74db56	#56d3db
