@@ -23,9 +23,11 @@ ID	MajorRegion	SubRegion	DetailRegion	Anterior	Posterior	MajorColor1	SubColor1	M
 4F	OLF	PIR	PIR	3900	4500	#ff7f0e	#ff7f0e	#569adb	#5661db
 4G	STR	LSX	LSX	3900	4500	#9467bd	#f7b6d2	#8456db	#db5687
 4H	PAL	PAL	MS,NDB,SI	3900	4500	#c5b0d5	#c5b0d5	#bd56db	#bd56db
+5A	Isocortex	ACA,PL,ILA	ACA	4500	5100	#1f77b4	#8c564b	#74db56	#dbd056
 5B	Isocortex	SSp	SSp	4500	5100	#1f77b4	#2ca02c	#74db56	#56d3db
 5C	Isocortex	SSs	SSs	4500	5100	#1f77b4	#2ca02c	#74db56	#56d3db
 5D	Isocortex	MOp	MOp	4500	5100	#1f77b4	#1f77b4	#74db56	#74db56
+5E	STR	CP	CP	4500	5100	#9467bd	#e377c2	#8456db	#db56c0
 5F	STR	ACB	ACB	4500	5100	#9467bd	#9467bd	#8456db	#8456db
 5G	OLF	PIR	PIR	4500	5100	#ff7f0e	#ff7f0e	#569adb	#5661db
 5H	PAL	PAL	BST,NDB,SI,MA,aco	4500	5100	#c5b0d5	#c5b0d5	#bd56db	#bd56db
